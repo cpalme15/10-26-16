@@ -1,0 +1,63 @@
+import java.util.*;
+public class Pizza {
+private char size;
+private int cheese,ham,pepperoni;
+Scanner k=new Scanner(System.in);
+
+public Pizza() {
+	super();
+	this.readInfo();
+
+}
+public Pizza(char size, int cheese, int ham, int pepperoni) {
+	super();
+	this.size = size;
+	this.cheese = cheese;
+	this.ham = ham;
+	this.pepperoni = pepperoni;
+	
+}
+public void setSize(char size) {
+	this.size = size;
+}
+public void setCheese(int cheese) {
+	this.cheese = cheese;
+}
+public void setHam(int ham) {
+	this.ham = ham;
+}
+
+public void setPepperoni(int pepperoni) {
+	this.pepperoni = pepperoni;
+	
+}
+public void readInfo()
+{ System.out.print("What size would you like?");
+   size=k.next().toUpperCase().charAt(0);
+   System.out.print("How many cheese toppings?");
+   cheese=k.nextInt();
+   System.out.print("How many ham toppings?");
+   ham=k.nextInt();
+   System.out.print("How many pepperoni toppings?");
+   pepperoni=k.nextInt();
+   k.close();
+}
+public double calcCost()
+{ double cost=0.0;
+switch(size){ 
+case'S': cost=10+2*(cheese+pepperoni+ham);
+case'M': cost=12+2*(cheese+pepperoni+ham);
+case'L': cost=14+2*(cheese+pepperoni+ham);
+}
+  return cost; 
+
+}
+public void getDescription()
+{
+	System.out.printf( "size =%2c%n"
+			+ "number of cheese=%2d%n"+
+	"number of pepperoni=%2d%nnumber of ham=%2d%n"+
+	"Cost=$%.2f%n",size,cheese,pepperoni,ham,calcCost());
+}
+
+}
